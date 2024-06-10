@@ -1,0 +1,280 @@
+{
+	"info": {
+		"_postman_id": "9b5fb695-6312-4bd4-bfdb-c052d1aad4bf",
+		"name": "Kanbans",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34824448"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    // \"username\":\"Bilal\",\r\n    \"email\":\"bilaljee684@gmail.com\",\r\n    \"password\":\"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create Task",
+			"request": {
+				"auth": {
+					"type": "jwt",
+					"jwt": [
+						{
+							"key": "algorithm",
+							"value": "HS256",
+							"type": "string"
+						},
+						{
+							"key": "isSecretBase64Encoded",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "payload",
+							"value": "{}",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "queryParamKey",
+							"value": "token",
+							"type": "string"
+						},
+						{
+							"key": "header",
+							"value": "{}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY2MTdmYjdjZjI5ZGYzMThhZDVlYmQ2In0sImlhdCI6MTcxNzc2MTY4NiwiZXhwIjoxNzE3NzY1Mjg2fQ.ks_q_vaKsWoajrBFgvpPH4rR83bZQuwmDV0hPBlFoZc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"taskLabel\": \"Abdullah\",\r\n    \"status\": \"closed\",\r\n    \"startDate\": \"2024-08-01T00:00:00.000Z\",\r\n    \"endDate\": \"2024-05-10T00:00:00.000Z\",\r\n    \"taskName\": \"Abdullah sajid\",\r\n    \"taskDescription\": \"Haafiz \",\r\n    \"category\": \"femails\",\r\n    \"tags\": [ \"idle\"],\r\n    \"priority\": \"Medium\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/task/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"task",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete task",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY2MTdmYjdjZjI5ZGYzMThhZDVlYmQ2In0sImlhdCI6MTcxNzc1NDY4MSwiZXhwIjoxNzE3NzU4MjgxfQ.U9h1u7nNhsIkPIymaYvMJG_wvWJ0-iJFueQwwoEpmX4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/task/delete/666194e027fa16aa729d706f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"task",
+						"delete",
+						"666194e027fa16aa729d706f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Task",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY2MTdmYjdjZjI5ZGYzMThhZDVlYmQ2In0sImlhdCI6MTcxNzc1NDY4MSwiZXhwIjoxNzE3NzU4MjgxfQ.U9h1u7nNhsIkPIymaYvMJG_wvWJ0-iJFueQwwoEpmX4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"taskLabel\": \" anjum Updating 3\",\r\n    \"status\": \"Open\",\r\n    \"startDate\": \"2024-06-01T00:00:00.000Z\",\r\n    \"endDate\": \"2024-06-10T00:00:00.000Z\",\r\n    \"taskName\": \"My Third Updating  Task\",\r\n    \"taskDescription\": \"This is a new task\",\r\n    \"category\": \"Work\",\r\n    \"tags\": [ \"idle\"],\r\n    \"priority\": \"Medium\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/task/update/6662dd088f4bbb6e39b2e267",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"task",
+						"update",
+						"6662dd088f4bbb6e39b2e267"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchByName",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY2MTdmYjdjZjI5ZGYzMThhZDVlYmQ2In0sImlhdCI6MTcxNzc1NDY4MSwiZXhwIjoxNzE3NzU4MjgxfQ.U9h1u7nNhsIkPIymaYvMJG_wvWJ0-iJFueQwwoEpmX4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/task/search?name=Shahid Jutt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"task",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Shahid Jutt"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchByLable",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY2MTdmYjdjZjI5ZGYzMThhZDVlYmQ2In0sImlhdCI6MTcxNzc2MTY4NiwiZXhwIjoxNzE3NzY1Mjg2fQ.ks_q_vaKsWoajrBFgvpPH4rR83bZQuwmDV0hPBlFoZc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/task/lable?lablename=abdullah",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"task",
+						"lable"
+					],
+					"query": [
+						{
+							"key": "lablename",
+							"value": "abdullah"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sortby",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY2MTdmYjdjZjI5ZGYzMThhZDVlYmQ2In0sImlhdCI6MTcxNzc1NDY4MSwiZXhwIjoxNzE3NzU4MjgxfQ.U9h1u7nNhsIkPIymaYvMJG_wvWJ0-iJFueQwwoEpmX4 ",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/task/sort?sortBy=2024-06-10T00:00:00.000Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"task",
+						"sort"
+					],
+					"query": [
+						{
+							"key": "sortBy",
+							"value": "2024-06-10T00:00:00.000Z"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
